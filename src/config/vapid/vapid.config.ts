@@ -8,9 +8,9 @@ export interface VapidConfig {
 }
 
 export default registerAs<VapidConfig, () => VapidConfig>(
-  ConfigNamespace.APP,
+  ConfigNamespace.VAPID,
   () => ({
-    vapidEmail: process.env.VAPID_EMAIL!,
+    vapidEmail: process.env.VAPID_SUBJECT!,
     vapidPublicKey: process.env.VAPID_PUBLIC_KEY!,
     vapidPrivateKey: process.env.VAPID_PRIVATE_KEY!,
   }),

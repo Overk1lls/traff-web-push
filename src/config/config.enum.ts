@@ -1,4 +1,4 @@
-export enum ConfigNamespace {
-  APP = 'app',
-  VAPID = 'vapid',
-}
+export const ConfigNamespace = {
+  APP: 'app',
+  VAPID: 'vapid',
+} as const;
