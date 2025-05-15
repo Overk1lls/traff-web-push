@@ -24,7 +24,9 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Робота з Web Push API.
+
+Потрібно згенерувати ключі для роботи із Web Push та виготовити фронт (HTML сторінка), на якому можна на них підписатися, а також відправити дані на бекенд. Бекенд має вміти приймати ці пуші та зберігати. Реалізувати відправку пушів через чергу та кампанію: створив кампанію через RESTful API, вона відправила пуші через чергу та завершилася. Потрібно налаштувати Service Worker так, щоб користувач отримував пуші від бекенда та приймав назад події. Використати `ngrok`, бо потрібний HTTPS.
 
 ## Project setup
 
@@ -48,7 +50,9 @@
   npx web-push generate-vapid-keys
   ```
 
-* **Update `.env` with your VAPID subject & keys** (!)
+* Update `.env` with your VAPID subject & keys (optional):
+    * Update `.env` with your own VAPID keys.
+    * Update `applicationServerKey` in `./public/register.js` with your own VAPID public key.
 
 * Start the Docker containers (`docker-compose.yml`):
   ```bash
@@ -57,7 +61,7 @@
 
 ## Compile and run the project
 
-* Start the project:
+* Start the project locally (optional):
   ```bash
   # development
   $ yarn run start
