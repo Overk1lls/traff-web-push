@@ -11,7 +11,6 @@ export class PushConsumer extends WorkerHost {
 
   async process(job: Job<PushPayload>): Promise<void> {
     const { message, title, subscription } = job.data;
-
     const payload = JSON.stringify({ title, message });
 
     this.logger.log(`Sending a notification with payload: ${payload}`);
