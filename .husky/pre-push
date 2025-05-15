@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# remove
+exit 0
+
+# if needed
+yarn build

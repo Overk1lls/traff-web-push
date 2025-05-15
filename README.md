@@ -54,6 +54,14 @@
     * Update `.env` with your own VAPID keys.
     * Update `applicationServerKey` in `./public/register.js` with your own VAPID public key.
 
+* Prepare `Husky` with `lint-staged` (optional):
+    ```bash
+    git config core.hooksPath .husky
+
+    # if needed (on Unix)
+    chmod +x ./.husky/pre-commit
+    ```
+
 * Start the Docker containers (`docker-compose.yml`):
   ```bash
   docker compose up -d
