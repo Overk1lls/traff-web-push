@@ -5,6 +5,7 @@ import express from 'express';
 import { join } from 'node:path';
 import { AppModule } from './app.module';
 import appConfig, { AppConfig } from './config/app/app.config';
+import { SwaggerSetupModule } from './swagger/swagger.module';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
@@ -18,6 +19,10 @@ async function bootstrap(): Promise<void> {
       transform: true,
     }),
   );
+
+  if (process.env.NODE_ENV !== 'production') {
+    SwaggerSetupModule.setup(app);
+  }
 
   const logger = new Logger('NestApplication');
   const { port } = app.get<AppConfig>(appConfig.KEY);

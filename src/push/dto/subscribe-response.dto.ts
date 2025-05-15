@@ -1,3 +1,3 @@
-export interface SubscribeResponseDto {
-  success: true;
+export class SubscribeResponseDto {
+  success: boolean;
 }
