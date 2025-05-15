@@ -1,3 +1,5 @@
+#!/usr/bin/env
+
 npx lint-staged
 
 yarn typecheck
