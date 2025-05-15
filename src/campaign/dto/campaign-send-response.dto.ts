@@ -1,5 +1,5 @@
 export type CampaignResponseStatus = 'sent' | 'error';
 
-export interface CampaignSendResponseDto {
+export class CampaignSendResponseDto {
   status: CampaignResponseStatus;
 }
