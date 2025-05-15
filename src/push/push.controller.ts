@@ -7,8 +7,10 @@ export class PushController {
   constructor(private readonly pushService: PushService) {}
 
   @Post('subscribe')
-  subscribe(@Body() body: PushSubscriptionDto): SubscribeResponseDto {
-    this.pushService.subscribe(body);
+  async subscribe(
+    @Body() body: PushSubscriptionDto,
+  ): Promise<SubscribeResponseDto> {
+    await this.pushService.subscribe(body);
 
     return { success: true };
   }
