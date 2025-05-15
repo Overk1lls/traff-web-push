@@ -13,6 +13,7 @@ import webpush from 'web-push';
 import { CampaignSendBodyDto } from '../campaign/dto';
 import vapidConfig, { VapidConfig } from '../config/vapid/vapid.config';
 import { Subscription, SubscriptionDocument } from '../shared/schemas';
+import { PushPayload } from './interfaces';
 import { PUSH_QUEUE_NAME } from './push.constants';
 import { PushQueueJob } from './push.enum';
 
@@ -22,7 +23,7 @@ export class PushService implements OnModuleInit, OnModuleDestroy {
 
   constructor(
     @InjectQueue(PUSH_QUEUE_NAME)
-    private readonly queue: Queue,
+    private readonly queue: Queue<PushPayload, void, PushQueueJob>,
 
     @InjectModel(Subscription.name)
     private readonly subscriptionModel: Model<SubscriptionDocument>,
