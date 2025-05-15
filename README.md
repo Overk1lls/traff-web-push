@@ -57,7 +57,7 @@
 
 ## Compile and run the project
 
-* Start the project:
+* Start the project locally (optional):
   ```bash
   # development
   $ yarn run start

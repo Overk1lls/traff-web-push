@@ -3,6 +3,7 @@ name: web-push-service
 services:
   redis:
     image: redis:latest
+    container_name: wps-redis
     env_file:
       - .env
     ports:
@@ -16,11 +17,27 @@ services:
 
   mongo:
     image: mongo:latest
+    container_name: wps-mongo
     ports:
       - ${MONGO_PORT:-27017}:27017
     healthcheck:
-      test: "echo 'db.runCommand({ ping: 1 })' | mongosh localhost:27017/web_push --quiet"
+      test: "echo 'db.runCommand({ ping: 1 })' | mongosh mongo:27017/web_push --quiet"
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 5s
+
+  server:
+    build: .
+    container_name: server
+    env_file:
+      - .env
+    environment:
+      - REDIS_HOST=redis
+      - BULLMQ_HOST=redis
+      - MONGO_URL=mongodb://mongo:27017/web_push
+    ports:
+      - ${PORT:-3000}:3000
+    depends_on:
+      - redis
+      - mongo
