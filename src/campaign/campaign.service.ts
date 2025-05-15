@@ -10,7 +10,7 @@ export class CampaignService {
     title: string,
     message: string,
   ): Promise<CampaignSendResponseDto> {
-    await this.pushService.sendNotification(title, message);
+    await this.pushService.sendNotification({ title, message });
 
     return { status: 'sent' };
   }
