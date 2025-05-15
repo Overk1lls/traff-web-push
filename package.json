@@ -1,8 +1,8 @@
 {
   "name": "traff-web-push",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "version": "1.0.0",
+  "description": "A test project to enable Web Push of notifications",
+  "author": "ov3rfordream@gmail.com",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

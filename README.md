@@ -28,22 +28,53 @@
 
 ## Project setup
 
-```bash
-$ yarn install
-```
+* Prepare `.env`:
+  * On Unix:
+  ```bash
+  cp .env.example .env
+  ```
+  * On Windows:
+  ```bash
+  copy .env.example .env
+  ```
+
+* Install dependencies:
+  ```bash
+  yarn install
+  ```
+
+* Generate VAPID keys:
+  ```bash
+  npx web-push generate-vapid-keys
+  ```
+
+* **Update `.env` with your VAPID subject & keys** (!)
+
+* Start the Docker containers (`docker-compose.yml`):
+  ```bash
+  docker compose up -d
+  ```
 
 ## Compile and run the project
 
-```bash
-# development
-$ yarn run start
+* Start the project:
+  ```bash
+  # development
+  $ yarn run start
 
-# watch mode
-$ yarn run start:dev
+  # watch mode
+  $ yarn run start:dev
 
-# production mode
-$ yarn run start:prod
-```
+  # production mode
+  $ yarn run start:prod
+  ```
+
+* Run nginx to enable HTTPS:
+  ```bash
+  nginx http 3000
+  ```
+
+* Open the URL and test the functionality via buttons
 
 ## Run tests
 
