@@ -1,5 +1,3 @@
 {
-  "lint-staged": {
-    "*.ts": ["yarn lint", "yarn format"]
-  }
+  "*.ts": ["yarn lint", "yarn format"]
 }
