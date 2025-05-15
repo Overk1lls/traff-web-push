@@ -19,6 +19,8 @@ export class PushService {
   }
 
   subscribe(subscription: webpush.PushSubscription): void {
+    this.logger.log(`Subscription incoming: ${subscription.keys.auth}`);
+
     this.subscriptions.push(subscription);
   }
 
