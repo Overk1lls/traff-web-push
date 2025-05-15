@@ -1,10 +1,16 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import bodyParser from 'body-parser';
+import express from 'express';
+import { join } from 'node:path';
 import { AppModule } from './app.module';
 import appConfig, { AppConfig } from './config/app/app.config';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
+
+  app.use(bodyParser.json());
+  app.use(express.static(join(process.cwd(), 'public')));
 
   app.useGlobalPipes(
     new ValidationPipe({
