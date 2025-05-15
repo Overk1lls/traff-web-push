@@ -1,0 +1,15 @@
+name: web-push-service
+
+services:
+  redis:
+    image: redis:latest
+    env_file:
+      - .env
+    ports:
+      - ${REDIS_PORT}:6379
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
